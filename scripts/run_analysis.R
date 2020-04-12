@@ -85,8 +85,8 @@ run_analysis <- function(){
   rm(groupData)
   
   #Save results to files
-  write.table(tidyData, file = "./output/tidyData.txt")
-  write.table(dataMeans, file = "./output/dataMeans.txt")
+  write.table(tidyData, file = "./output/tidyData.txt", row.names = FALSE)
+  write.table(dataMeans, file = "./output/dataMeans.txt", row.names = FALSE)
   
   #Remove remaining data
   rm(list =ls())
