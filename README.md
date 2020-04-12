@@ -14,7 +14,6 @@ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Datas
 ## Running the scripts
 With the directory set to the root folder, you will need to type the following commands to load and run the scripts:
 ---
-source("./scripts/run_analysis.R")
 run_analysis()
 ---
 Running the run_analysis should create two files in the 'output' folder named 'tidyData.txt' and 'dataMeans.txt'. Further explanation of the contents of these files can be found in the codebook. The scripts are commented to show detail how they work.
