@@ -1,5 +1,5 @@
 ---
-title: "Codebook"
+title: "Codebook: Getting and Cleaning Data Course Project"
 author: "Clara Standring"
 date: "12/04/2020"
 output: html_document
@@ -9,22 +9,53 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Raw Data 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+### Used Data Files
+The files used to collect the data were as follows:
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+* data/UCI HAR Dataset/features.txt - Each line contains the number and name of every feature recorded for record in the 'X_train.txt' and 'X_test.txt' files.
+* data/UCI HAR Dataset/activity_labels.txt - Each line contains an activity name and the activity number that name corresponds to.
+* data/UCI HAR Dataset/train/subject_train.txt - The subject number that each record in the 'X_train.txt' belongs to
+* data/UCI HAR Dataset/train/X_train.txt - The training dataset of values of each feature recorded for each observation made
+* data/UCI HAR Dataset/train/y_train.txt - The activity number that each record in the 'X_train.txt' dataset corresponds to
+* data/UCI HAR Dataset/test/subject_test.txt - The subject number that each record in the 'X_test.txt' belongs to
+* data/UCI HAR Dataset/test/X_test.txt - The test dataset of values of each feature recorded for each observation made
+* data/UCI HAR Dataset/test/y_test.txt - The activity number that each record in the 'X_test.txt' dataset corresponds to
 
-```{r cars}
-summary(cars)
-```
+### Unused Data Files
+The following data files were not used:
 
-## Including Plots
+* All files within 'data/UCI HAR Dataset/train/Inertial Signals' - Raw data that would not have been used as the measurements within do not involve mean or standard deviation
+* All files within 'data/UCI HAR Dataset/test/Inertial Signals' - Raw data that would not have been used as the measurements within do not involve mean or standard deviation
 
-You can also embed plots, for example:
+### Info Files
+The following files contain further information to describe the contents of the data files listed above:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
+* data/UCI HAR Dataset/README.txt
+* data/UCI HAR Dataset/features_info.txt
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+### Data contained Within Data Files
+The following data was obtained from the used data files listed above:
+
+* Features (From 'X_train.txt'/'X_test.txt') - Each observation contains 561 different feature observations (listed in 'features.txt' and described in 'features_info.txt')
+* Activity number (From 'y_train.txt'/'y_test.txt') - The number of the activity that each observation of features belongs to
+* Subject number (From 'subject_train.txt'/'subject_test.txt') - The number of the subject that each observation of features belongs to
+* Activity name (From 'activity_labels.txt') - The name of the activity that corresponds to each activity number
+
+
+## Processed Data
+
+### Data Files
+The files used to store the results of the script are as follow:
+
+* output/tidyData.txt - Each line contains the subject number, activity name, and feature observations of a record from the training or test datasets. Contains every observation from both the training and test datasets.
+* output/dataMeans.txt - Each line contains the feature avearges of a group of the 'tidyData.txt' dataset grouped by subject and activity. As there were 30 different subjects and 6 different activities, this dataset contains 30x6 = 180 different groups/records.
+
+### Data contained Within Data Files
+The following data is contained in the data files listed above:
+
+* Mean/Standard Deviation Features - Only the features to do with mean and standard deviation were kept. These features contain either 'mean' or 'std', are listed in 'features.txt' and described in 'features_info.txt'. These are single observations in the 'tidyData.txt' dataset, and mean averages of the features for each group in the 'dataMeans.txt' dataset.
+* Activity name - The name of the activity being performed.
+* Subject number - The number of the subject that each record belongs to.
+
