@@ -1,5 +1,5 @@
 ---
-title: "Codebook: Getting and Cleaning Data Course Project"
+title: "CodeBook: Getting and Cleaning Data Course Project"
 author: "Clara Standring"
 date: "12/04/2020"
 output: html_document
